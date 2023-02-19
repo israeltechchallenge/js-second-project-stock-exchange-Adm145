@@ -10,10 +10,11 @@ document.addEventListener('keydown', function (event) {
   }
 });
 
+const urlBase = "https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/";
 async function getData() {
   loader.removeAttribute("style");
   searchList.innerText = " ";
-  const url = `https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/search?query=${userInput.value}&exchange=NASDAQ`;
+  const url = urlBase + `/search?query=${userInput.value}&exchange=NASDAQ`;
   try {
     const response = await fetch(url);
     const data = await response.json()
@@ -47,7 +48,7 @@ function displaySearchResults(data) {
 }
 
 async function getAdditionalResults(symbol, pageLink) {
-  const url = `https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/company/profile/${symbol}`;
+  const url = urlBase + `company/profile/${symbol}`;
   try {
     const response = await fetch(url);
     const data = await response.json();
