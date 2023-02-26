@@ -34,10 +34,6 @@ img {
   font-size: 1.2rem;
 }
 
-.priceInfo>span:last-child {
-  color: var(--color, "black")
-}
-
 .stockDesc {
   width: 35rem;
   font-size: 0.9rem;

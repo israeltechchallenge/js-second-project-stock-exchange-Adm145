@@ -2,15 +2,8 @@ const searchBtn = document.getElementById('searchBtn');
 const userInput = document.getElementById('userInput');
 const searchList = document.querySelector('.dataList');
 const loader = document.querySelector('.spinner-border');
-
-searchBtn.addEventListener('click', getData);
-document.addEventListener('keydown', function (event) {
-  if (event.key === 'Enter') {
-    getData();
-  }
-});
-
 const urlBase = "https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/";
+
 async function getData() {
   loader.removeAttribute("style");
   searchList.innerText = " ";
@@ -25,6 +18,13 @@ async function getData() {
   }
 }
 
+searchBtn.addEventListener('click', getData);
+document.addEventListener('keydown', function (event) {
+  if (event.key === 'Enter') {
+    getData();
+  }
+});
+
 function displaySearchResults(data) {
   loader.style.display = "none";
   let linkBase = "./Pages/company.html"
@@ -35,7 +35,7 @@ function displaySearchResults(data) {
     let listItem = document.createElement('li');
     let symbol = data[i].symbol;
     let name = data[i].name;
-    let pageLink = linkBase + `?symbol=${symbol}`
+    let pageLink = linkBase + `?symbol=${symbol}`;
     link.href = pageLink.toString();
     link.target = '_blank';
     searchText = [`<span>${name}</span> - <span>[${symbol}]</span>`];
@@ -65,13 +65,13 @@ function displayAdditionalResults(data, pageLink) {
   const span = document.createElement('span');
   if (profile.changesPercentage < 0) {
     span.classList = 'percentNegative'
-    span.textContent = `(${profile.changesPercentage})`
+    span.textContent = `(${profile.changesPercentage}%)`
   } else if (profile.changesPercentage > 0) {
     span.classList = 'percentPositive'
-    span.textContent = `(+${profile.changesPercentage})`
+    span.textContent = `(+${profile.changesPercentage}%)`
   } else {
     span.classList = 'percentNeutral'
-    span.textContent = `(${profile.changesPercentage})`
+    span.textContent = `-No recent price changes found-`
   }
 
   img.src = profile.image;
@@ -80,38 +80,3 @@ function displayAdditionalResults(data, pageLink) {
   listItem.insertBefore(img, listItem.firstChild);
   listItem.appendChild(span);
 }
-
-async function getMarqueeData() {
-  const url = `https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/stock/list`;
-  try {
-    const response = await fetch(url);
-    const data = await response.json();
-    displayMarquee(data);
-  }
-  catch (error) {
-    console.log(error);
-  }
-}
-
-
-function displayMarquee(data) {
-  const marquee = document.querySelector('.marquee-container');
-  const text = document.getElementById('scrollingText');
-  for (let i = 0; i < 20; i++) {
-    let symbol = document.createElement('span');
-    let price = document.createElement('span');
-    let div = document.createElement('div');
-    symbol.className = 'marqueeSymbol'
-    symbol.innerText = data[i].symbol;
-    price.className = 'marqueePrice'
-    price.textContent = data[i].price;
-    marqueeText = [
-      `<span class="marqueeSymbol">${data[i].symbol}</span> <span class="marqueePrice">(${data[i].price}$)</span>`
-    ];
-    div.innerHTML = marqueeText;
-    text.appendChild(div);
-    marquee.appendChild(text);
-  }
-  console.log(marquee)
-}
-getMarqueeData();

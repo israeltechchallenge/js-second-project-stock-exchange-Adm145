@@ -4,43 +4,6 @@ body {
   padding: 0;
 }
 
-.marquee-container {
-  display: flex;
-  top: 0;
-  right: 0;
-  left: 0;
-  height: 1.5rem;
-  background-color: lightblue;
-  overflow: hidden;
-}
-
-#scrollingText>div {
-  width: 10rem;
-}
-
-#scrollingText {
-  display: flex;
-  animation: text-scroll 35s linear infinite;
-}
-
-@keyframes text-scroll {
-  from {
-    transform: translateX(100%);
-  }
-
-  to {
-    transform: translateX(-100%);
-  }
-}
-
-.marqueeSymbol {
-  font-weight: 700;
-}
-
-.marqueePrice {
-  color: green;
-}
-
 main {
   display: flex;
   flex-direction: column;
@@ -157,20 +120,22 @@ li>a {
   display: inline-block;
 }
 
+.percentNegative,
+.percentPositive,
+.percentNeutral {
+  font-weight: 500;
+  padding-left: 15px;
+}
+
 .percentNegative {
   color: red;
-  font-weight: 400;
-  padding-left: 15px;
 }
 
 .percentPositive {
   color: green;
-  font-weight: 400;
-  padding-left: 15px;
 }
 
 .percentNeutral {
   color: black;
-  font-weight: 400;
-  padding-left: 15px;
+  font-size: 0.8rem;
 }
