@@ -1,0 +1,143 @@
+body {
+  font-family: Roboto, Arial;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  margin: auto;
+  margin-top: 80px;
+  margin-bottom: 80px;
+  min-width: 55rem;
+  max-width: 65rem;
+  background-color: rgb(179, 66, 255);
+  color: white;
+  border-radius: 2rem;
+  box-shadow: 0 0 10px black;
+}
+
+h1 {
+  margin-bottom: 60px;
+}
+
+.searchContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 20px;
+  width: 25rem;
+  height: 3.5rem;
+  border-radius: 2rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 2px rgb(255, 255, 255) solid;
+  background-color: rgb(232, 60, 255);
+  font-weight: 500;
+}
+
+#userInput {
+  color: rgb(70, 70, 70);
+  background-color: rgb(232, 60, 255);
+  border: none;
+}
+
+#userInput:focus {
+  outline: none;
+  font-size: 1rem;
+}
+
+#userInput::placeholder {
+  color: rgb(201, 201, 201);
+}
+
+#searchBtn {
+  background-color: rgb(232, 60, 255);
+  border: none;
+  border-radius: 1rem;
+  transition: opacity .1s, background-color .1s;
+}
+
+.searchIcon {
+  padding: 0.5rem;
+  border-radius: 10px;
+  transition: box-shadow .2s;
+}
+
+#searchBtn:hover>.searchIcon {
+  box-shadow: 0 0 10px white;
+}
+
+dataList {
+  z-index: 2;
+}
+
+li {
+  list-style: none;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  background-color: rgb(246, 233, 250);
+  border-bottom: gray 1px solid;
+  white-space: nowrap;
+}
+
+li:first-child {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  margin-top: 5px;
+}
+
+li:last-child {
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+a:link {
+  color: purple;
+  text-decoration: none;
+}
+
+a:visited {
+  color: purple;
+}
+
+li>img {
+  display: inline-block;
+  padding-right: 10px;
+  width: 50px;
+  border-radius: 5px;
+  object-fit: cover;
+  object-position: center;
+  color: black;
+  font-size: 8px;
+}
+
+li>a {
+  display: inline-block;
+}
+
+.percentNegative,
+.percentPositive,
+.percentNeutral {
+  font-weight: 500;
+  padding-left: 15px;
+}
+
+.percentNegative {
+  color: red;
+}
+
+.percentPositive {
+  color: green;
+}
+
+.percentNeutral {
+  color: black;
+  font-size: 0.8rem;
+}

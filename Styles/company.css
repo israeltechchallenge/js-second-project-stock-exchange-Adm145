@@ -1,0 +1,50 @@
+* {
+  box-sizing: border-box;
+  font-family: Poppins, Arial;
+}
+
+main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem;
+  margin-left: 7rem;
+  padding: 2rem;
+}
+
+.stockInfo {
+  display: flex;
+  align-items: center;
+  column-gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+img {
+  width: 3rem;
+}
+
+#stockName {
+  color: rgb(119, 0, 247);
+  font-size: 2rem;
+  margin: 0;
+}
+
+.priceInfo {
+  margin-bottom: 3rem;
+  font-size: 1.2rem;
+}
+
+.stockDesc {
+  width: 35rem;
+  font-size: 0.9rem;
+}
+
+@media screen and (max-width: 1480px) {
+  main {
+    flex-direction: column;
+  }
+
+  .details {
+    margin-bottom: 2rem;
+  }
+}
