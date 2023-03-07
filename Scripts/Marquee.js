@@ -24,7 +24,7 @@ class Marquee {
       let marqueeText = [
         `<span class="marqueeSymbol">${data[i].symbol}</span> <span class="marqueePrice">(${data[i].price}$)</span>`
       ];
-      div.innerHTML = marqueeText;
+      div.innerHTML = marqueeText.join('');
       text.appendChild(div);
       marquee.appendChild(text);
     }

@@ -13,7 +13,8 @@ main {
   margin: auto;
   margin-top: 80px;
   margin-bottom: 80px;
-  width: 50rem;
+  min-width: 55rem;
+  max-width: 65rem;
   background-color: rgb(179, 66, 255);
   color: white;
   border-radius: 2rem;
@@ -83,6 +84,7 @@ li {
   font-weight: 500;
   background-color: rgb(246, 233, 250);
   border-bottom: gray 1px solid;
+  white-space: nowrap;
 }
 
 li:first-child {
